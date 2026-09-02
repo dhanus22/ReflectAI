@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "path": "/users/{userId}",
+      "fields": {
+        "uid": { "type": "string", "description": "Unique Firebase Auth UID" },
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "Display name of the user" },
+        "photoURL": { "type": "string", "description": "Avatar URL" },
+        "createdAt": { "type": "number", "description": "Timestamp of account registration" },
+        "lastLoginAt": { "type": "number", "description": "Timestamp of latest login" }
+      }
+    },
+    "JournalEntry": {
+      "path": "/users/{userId}/entries/{entryId}",
+      "fields": {
+        "id": { "type": "string", "description": "Unique entry identifier" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "title": { "type": "string", "description": "Title or topic of the journal entry" },
+        "category": { "type": "string", "description": "Category (journal, reflection, brainstorm, summary)" },
+        "tags": { "type": "array", "description": "Tags or keywords for filtering" },
+        "createdAt": { "type": "number", "description": "Creation timestamp in milliseconds" },
+        "updatedAt": { "type": "number", "description": "Last modified timestamp in milliseconds" },
+        "messages": { "type": "array", "description": "Conversation message history" },
+        "summary": { "type": "string", "description": "Gemini AI generated reflection/summary" },
+        "keyInsights": { "type": "array", "description": "Key points extracted by Gemini" }
+      }
+    },
+    "Interaction": {
+      "path": "/users/{userId}/interactions/{interactionId}",
+      "fields": {
+        "id": { "type": "string", "description": "Unique interaction identifier" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "prompt": { "type": "string", "description": "User prompt/input" },
+        "response": { "type": "string", "description": "Gemini response text" },
+        "mode": { "type": "string", "description": "Mode (reflection, summary, brainstorm)" },
+        "createdAt": { "type": "number", "description": "Timestamp" }
+      }
+    }
+  }
+}
